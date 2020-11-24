@@ -1,0 +1,71 @@
+
+spring:
+  application:
+    name: thread
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+        
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+  #    cluster:
+#      nodes:
+#        - 127.0.0.1:6370
+#        - 127.0.0.1:6371
+#        - 127.0.0.1:6372
+#        - 127.0.0.1:6373
+#        - 127.0.0.1:6374
+#        - 127.0.0.1:6375
+
+  #    #host: 127.0.0.1 #对应redis所在的IP地址
+#    port: 6379 #redis数据库对应的端口号
+#    database: 0 #使用第1个数据库，一共默认有10个(0-15)
+#     #连接超时时间
+#    timeout: 10000
+#    block-when-exhausted: true
+#    password: 123456
+  # 数据库
+  datasource:
+      url: jdbc:mysql://127.0.0.1:3306/tyfo?characterEncoding=utf-8&useSSL=false
+      username: root
+      password: yorkroot
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.york.thread
+  global-config:
+    # 数据库相关配置
+    db-config:
+      #主键类型  AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      id-type: INPUT
+      #字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      field-strategy: IGNORED
+      #驼峰下划线转换
+      column-underline: true
+      #数据库大写下划线转换
+      #capital-mode: true
+      #逻辑删除配置
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      sql-injector: com.baomidou.mybatisplus.OrderMapper.LogicSqlInjector
+      db-type: mysql
+    #刷新mapper 调试神器
+    refresh: true
+  # 原生配置
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    # 控制台打印sql语句
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8181
+rocketmq:
+  name-server: 192.168.50.40:9876
+  producer:
+    group: my-group
+debug: true

@@ -1,0 +1,12 @@
+@startuml
+package com.york.thread.celue {
+    class Duck {
+        +FlyBehavior flyBehavior
+        +QuackBehavior quackBehavior
+    }
+
+    class MallardDuck extends Duck {
+
+    }
+}
+@enduml
