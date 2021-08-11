@@ -84,6 +84,7 @@ public class MultiThreadEchoServer {
         SocketChannel channel = (SocketChannel) sk.channel();
         ByteBuffer bb = ByteBuffer.allocate(8192);
         int len;
+        StringBuilder sb = new StringBuilder();
         try {
             len = channel.read(bb);
             if (len < 0) {
