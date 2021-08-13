@@ -88,7 +88,7 @@ public class MultiThreadEchoServer {
         try {
             len = channel.read(bb);
             if (len < 0) {
-                // TODO: 2019/4/9 disconnect
+                channel.close();
                 return;
             }
         } catch (Exception e) {
