@@ -18,10 +18,8 @@ import io.netty.handler.codec.http.*;
 public class EchoServer {
 
     public static void main(String[] args) throws InterruptedException {
-        ServerHandler serverHandler = new ServerHandler();
         EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
         ServerBootstrap serverBootstrap = new ServerBootstrap();
-        HttpRequestDecoder requestDecoder = new HttpRequestDecoder();
         serverBootstrap.group(eventLoopGroup).channel(NioServerSocketChannel.class)
                 .localAddress(8001)
                 .childHandler(new ChannelInitializer<SocketChannel>() {

@@ -31,8 +31,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
                 "Sec-Fetch-User: ?1\n" +
                 "Sec-Fetch-Dest: document\n" +
                 "Accept-Encoding: gzip, deflate, br\n" +
-                "Accept-Language: zh-CN,zh;q=0.9,en;q=0.8\n" +
-                "huohua-podenv: PLATFORM-35376", CharsetUtil.UTF_8));
+                "Accept-Language: zh-CN,zh;q=0.9,en;q=0.8", CharsetUtil.UTF_8));
     }
 
     @Override
